@@ -31,8 +31,8 @@ object ProjectModules {
 
 object Libraries {
     private object Versions {
-        const val jetpack = "1.1.0-alpha01"
         const val constraintLayout = "2.0.0-alpha3"
+        const val jetpack = "1.1.0-alpha01"
         const val ktx = "1.1.0-alpha03"
         const val dagger = "2.24"
         const val legacySupport = "1.0.0"
@@ -40,12 +40,22 @@ object Libraries {
         const val okHttp = "3.12.1"
         const val lifecycle = "2.1.0"
         const val retrofit = "2.5.0"
+        const val archLifecycle = "1.1.1"
+        const val archRoom = "1.1.1"
+        const val coroutines = "2.3.0-alpha02"
+        const val coroutinesAndroid = "1.3.0"
+        const val material_design_library = "1.0.0-rc01"
+        const val coroutinesCore = "1.3.2"
+        const val workVersion = "2.3.4"
     }
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     const val legacySupport = "androidx.legacy:legacy-support-v4:${Versions.legacySupport}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.jetpack}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val archLifecycle = "android.arch.lifecycle:extensions:${Versions.archLifecycle}"
+    const val archRoomRuntime = "android.arch.persistence.room:runtime:${Versions.archRoom}"
+    const val archRoomCompiler = "android.arch.persistence.room:compiler:${Versions.archRoom}"
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     const val daggerSupportAndroid = "com.google.dagger:dagger-android-support:${Versions.dagger}"
@@ -59,6 +69,11 @@ object Libraries {
     const val lifecycle = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val designLibary = "com.google.android.material:material:${Versions.material_design_library}"
+    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.coroutines}"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesAndroid}"
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
+    const val workVersion = "androidx.work:work-runtime-ktx:${Versions.workVersion}"
 }
 
 object TestLibraries {

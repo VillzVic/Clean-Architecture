@@ -11,6 +11,7 @@ import com.vic.villz.topartists.net.LastFmTopArtistsApi
 import com.vic.villz.topartists.net.LastFmTopArtistsProvider
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 @Module
 object LastFmTopArtistsModule{
@@ -18,14 +19,15 @@ object LastFmTopArtistsModule{
 
     @Provides
     @JvmStatic
-    fun provideLastFmMapper(): DataMapper<LastFmArtists, List<Artist>> = LastFmArtistsMapper()
+    fun provideLastFmMapper(): DataMapper<Pair<LastFmArtists, Long>, List<Artist>> = LastFmArtistsMapper()
 
     @Provides
+    @Named(TopArtistsModule.NETWORK)
     @JvmStatic
     fun providesTopArtistsProvider(
         lastFmTopArtistsApi: LastFmTopArtistsApi,
         connectivityChecker: ConnectivityChecker,
-        mapper: DataMapper<LastFmArtists, List<Artist>>
+        mapper: DataMapper<Pair<LastFmArtists, Long>, List<Artist>>
     ): DataProvider<TopArtistsState> = LastFmTopArtistsProvider(
         lastFmTopArtistsApi,
         connectivityChecker,

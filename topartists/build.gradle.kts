@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+
 plugins {
     id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
@@ -27,6 +29,14 @@ android {
         }
     }
 
+    compileOptions {
+        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    (kotlinOptions as KotlinJvmOptions).apply {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -43,6 +53,14 @@ dependencies {
     implementation(Libraries.legacySupport)
     implementation(Libraries.glide)
     implementation(Libraries.lifecycle)
+    implementation(Libraries.archLifecycle)
+    implementation(Libraries.coroutinesCore)
+    implementation(Libraries.coroutinesAndroid)
+    implementation(Libraries.designLibary)
+    implementation(Libraries.lifecycleViewModel)
+    implementation(Libraries.workVersion)
+    api(Libraries.archRoomRuntime)
+    kapt(Libraries.archRoomCompiler)
     api(Libraries.retrofit)
     implementation(Libraries.retrofitMoshi)
     kapt(Libraries.daggerCompiler)

@@ -5,6 +5,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import androidx.core.content.getSystemService
 import com.vic.villz.artists.MuseleeApplication
+import com.vic.villz.core.app.connectivity.ConnectivityLiveData
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -26,5 +27,11 @@ object AppModule { //all other library modules can access this module and inject
     fun provideConnectivityManager(app: Application): ConnectivityManager{
         return app.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     }
+
+    @Provides
+    @JvmStatic
+    @Singleton
+    fun providesConnectivityLiveData(app: Application) =
+        ConnectivityLiveData(app)
 
 }

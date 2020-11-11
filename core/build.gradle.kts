@@ -40,6 +40,7 @@ dependencies {
     implementation(Libraries.dagger)
     implementation(Libraries.daggerAndroid)
     implementation(Libraries.lifecycle)
+    implementation(Libraries.workVersion)
     kapt(Libraries.daggerCompiler)
     kapt(Libraries.daggerAndroidCompiler)
 

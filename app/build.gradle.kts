@@ -1,4 +1,4 @@
-
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 
 plugins {
     id(BuildPlugins.androidApplication)
@@ -24,6 +24,17 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+    compileOptions {
+        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    (kotlinOptions as KotlinJvmOptions).apply {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+
 }
 
 dependencies {
@@ -39,6 +50,7 @@ dependencies {
     implementation(Libraries.daggerAndroid)
     implementation(Libraries.daggerSupportAndroid)
     implementation(Libraries.glide)
+    implementation(Libraries.workVersion)
     kapt(Libraries.glideCompiler)
     kapt(Libraries.daggerCompiler)
     kapt(Libraries.daggerAndroidCompiler)

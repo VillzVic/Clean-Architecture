@@ -34,8 +34,8 @@ object NetworkModule {
     @Named("JSON")
     @JvmStatic
     internal fun providesJson() =
-        Interceptor { chain ->;
-            val newRequest = chain.request().let { request ->;
+        Interceptor { chain ->
+            val newRequest = chain.request().let { request ->
                 val newUrl = request.url().newBuilder()
                     .addQueryParameter("format", "json")
                     .build()

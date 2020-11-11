@@ -5,13 +5,15 @@ import com.vic.villz.topartists.entities.Artist
 import javax.inject.Inject
 
 //andd constructor @Inject so that you can use this in the repository
-class LastFmArtistsMapper :DataMapper<LastFmArtists, List<Artist>>{
+class LastFmArtistsMapper :DataMapper<Pair<LastFmArtists, Long>, List<Artist>> {
 
 
-    override fun map(source: LastFmArtists): List<Artist> =
-        source.artists.artist.map { artist ->
-            Artist(artist.name, artist.normalisedImages())
+    override fun encode(source: Pair<LastFmArtists, Long>): List<Artist> {
+        val (lastFmArtists, expiry) = source
+        return lastFmArtists.artists.artist.map { artist ->
+            Artist(artist.name, artist.normalisedImages(), expiry)
         }
+    }
 
 
     private fun LastFmArtist.normalisedImages() =
